@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="46658" started-at="2019-08-29T11:48:28Z" finished-at="2019-08-29T11:49:15Z">
+    <groups>
+      <group name="ADD_RATE">
+        <method signature="AddRateTest.ScheduleVacationWithAddRate()[pri:0, instance:com.aristo.test.AddRateTest@754ba872]" name="ScheduleVacationWithAddRate" class="com.aristo.test.AddRateTest"/>
+      </group> <!-- ADD_RATE -->
+    </groups>
+    <test name="Default test" duration-ms="46658" started-at="2019-08-29T11:48:28Z" finished-at="2019-08-29T11:49:15Z">
+      <class name="com.aristo.test.AddRateTest">
+        <test-method status="PASS" signature="ScheduleVacationWithAddRate()[pri:0, instance:com.aristo.test.AddRateTest@754ba872]" name="ScheduleVacationWithAddRate" duration-ms="42001" started-at="2019-08-29T17:18:28Z" finished-at="2019-08-29T17:19:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ScheduleVacationWithAddRate -->
+        <test-method status="PASS" signature="ScheduleVacationWithAddRate()[pri:0, instance:com.aristo.test.AddRateTest@754ba872]" name="ScheduleVacationWithAddRate" duration-ms="4603" started-at="2019-08-29T17:19:10Z" finished-at="2019-08-29T17:19:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ScheduleVacationWithAddRate -->
+      </class> <!-- com.aristo.test.AddRateTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

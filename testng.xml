@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="VacationRateServices" parallel="methods" thread-count="1">
+	<listeners>
+		<listener class-name="com.nytimes.testng.TestLogListener" />
+		 <!-- <listener class-name="com.nytimes.cis.util.MyTransformer"/>  to execute failed cases
+			<listener class-name= "com.nytimes.cis.util.ExtentReporterNG" /> for extent report
+			 
+			to get correct count even if a test case fails and run's for multiple times
+			 <listener class-name="com.nytimes.cis.util.TestListener"/>  --> 
+	</listeners>
+    <test name="VacationRateService Tests" >
+     	<groups>
+            <run>
+            	<exclude name="CreateAccount100"/> 
+            </run>
+        </groups> 
+        
+	 	<packages>
+			 <package name="com.nytimes.cis.test"></package>
+		</packages>
+	</test>	
+</suite>

@@ -1,0 +1,17 @@
+SSH_STG_Properties:
+  qa_strSshUser : "prakhya_woruvakonda" 
+  qa_strSshHost : "dba-gwe.stg.iad1.nyt.net"
+  qa_nSshPort : "22"
+  qa_strRemoteHost : "aristo-db01.stg.iad1.nyt.net"
+  qa_nLocalPort : "3312"
+  qa_nRemotePort : "1522"
+  qa_strDbUser : "aristo_owner"
+  qa_strDbPassword : "RWMoHScJ2dSLopC7"  
+  connection_url: "jdbc:oracle:thin:@//localhost:3312/ARSTOST1"
+STG_DB_Credentials:
+  connection_url: "jdbc:oracle:thin:@aristo-db.stg.nytimes.com:1522/ARSTOST1"
+  username: "aristo_batch"
+  password: "eCkuBLY4uAluG8x"
+CacheAccountsEligibleForVr: 
+  HD: "SELECT s.SUB_ACCT_NUM FROM ARISTO_OWNER.SUB_SUBSCRIBER s, ARISTO_OWNER.SUB_PRODUCT p WHERE s.SUB_ACCT_NUM = p.SUB_ACCT_NUM_P and p.PROD_CD_P = 'DS' and p.PROD_STATUS_CD_P = 01 AND p.new_prod_p = ' ' AND p.DELIVERY_TYPE_P = 'HD' AND p.PROM_RATE_CD_P in ('P103','PJ15','PJ12','PJ13','P221','P222','PN50','PT11','PIGT','PT15','PIES','PT12','N123','N25O','NJ19','NJ13','NJ12','N222','N221','NN50','NIHS','NIIS','E103','EJ13','EJ12','E221','E222') AND PROM_RATE_CD_P LIKE 'P%' AND s.CUSTOMER_TYPE_S = 'RG' AND s.BILL_TYPE_S='A' and s.TIMESSELECT_IND_S is null AND P.PROM_EXPIR_DATE_1_P = 691231 and p.SUB_ACCT_NUM_P not in (select distinct key_account from PND_TXN_PRCH_STOP_RESTART where type= 'ST') order by 1 asc"
+  cacheSize: "5"
