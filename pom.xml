@@ -11,7 +11,7 @@
         <!-- This is used for the RPM revision which must be at most 10 chars for Spacewalk to work -->
         <maven.build.timestamp.format>yyMMddHHmm</maven.build.timestamp.format>
         <!-- Default value is blank, this is used for the RPM filename -->
-        <!-- <git.branch.sanitized></git.branch.sanitized>
+        <!-- 
         <wsdlDirectoryForJava>${basedir}/src/java/wsdl</wsdlDirectoryForJava>
         <bindingDirectoryForJava>${basedir}/src/java/jaxb</bindingDirectoryForJava> -->
     </properties>
