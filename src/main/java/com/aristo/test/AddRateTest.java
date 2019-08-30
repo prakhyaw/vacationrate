@@ -7,20 +7,23 @@ import com.aristo.services.EligibilityOptions;
 import com.aristo.services.ScheduleVacation;
 import com.aristo.services.VacationHistory;
 import com.aristo.util.TestAccountsProvider;
-import com.nytimes.testng.Logger;
+import org.apache.log4j.Logger;
 
 public class AddRateTest {
 	
-	@Test(groups = {"ADD_RATE"}, invocationCount = 2)
+	Logger logger = Logger.getLogger(AddRateTest.class);
+	
+	@SuppressWarnings("null")
+	@Test(groups = {"ADD_RATE"}, invocationCount = 1)
 	public void ScheduleVacationWithAddRate() {
 		
 		try
 		{
+			logger.info("Test started");
+			
 			TestAccountsProvider testdata = new TestAccountsProvider();
 			String accountId = testdata.getAccount("HD");
-			
-			System.out.println("Account Number selected for vacation is ==\t"+accountId);
-			
+						
 			int l = accountId.length();
 			if(accountId.length() < 9)
 			{
@@ -29,6 +32,8 @@ public class AddRateTest {
 					accountId = 0+accountId;
 				}
 			}
+			
+			logger.info("Account Number selected for vacation is ==\t"+accountId);
 			
 			EligibilityOptions eligibilitycheck = new EligibilityOptions();
 			String schedulingOptions = eligibilitycheck.EligibilityEngineTest(accountId);
@@ -49,7 +54,6 @@ public class AddRateTest {
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
-			Assert.fail("Some exception has been thrown.....Please refer log file for more information.....");
 		}
 	}
 }

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -15,10 +16,13 @@ import org.testng.annotations.Test;
 import com.aristo.base.TestBase;
 import com.aristo.client.RestClient;
 import com.aristo.requests.EligibilityRequest;
+import com.aristo.test.AddRateTest;
 import com.aristo.util.TestUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class EligibilityOptions extends TestBase{
+	
+	Logger logger = Logger.getLogger(EligibilityOptions.class);
 	
 	TestBase testbase;
 	String apiurl;
@@ -49,29 +53,45 @@ public class EligibilityOptions extends TestBase{
 		ObjectMapper mapper = new ObjectMapper();
 		EligibilityRequest data = new EligibilityRequest("SUG", accountId);
 		
+		String filePath = System.getProperty("user.dir")+"/src/main/java/com/aristo/requests/eligibility.json";
+		
 		//object to json file
-		mapper.writeValue(new File("C:/Users/nagaprakhya_w/finalworkspacewithconnection/vacationrateservices/src/main/java/com/aristo/requests/eligibility.json"), data);
+		mapper.writeValue(new File(filePath), data);
 		
 		//object to json string
 		String dataString = mapper.writeValueAsString(data);
+		logger.info(dataString);
 		
 		//execute
 		httpresponse = restClient.postService(url, dataString, headerMap);
 		
 		int statusCode = httpresponse.getStatusLine().getStatusCode();
-		System.out.println("Status code ----->"+ statusCode);
+		logger.info("Status code ----->"+ statusCode);
 		Assert.assertEquals(statusCode, RESPONSE_STATUS_CODE_200, "Status code is not 200");
 		
 		//Json String
 		String responseString = EntityUtils.toString(httpresponse.getEntity(),"UTF-8");		
 				
 		JSONObject responseJson = new JSONObject(responseString);
-		System.out.println("Response json from api -->" +responseJson);
+		logger.info("Response json from api -->" +responseJson);
 				
 		//get the value of JSONArray
-		String schedulingOptions = TestUtil.getValueByJPath(responseJson, "/schedulingOptions[2]");
-		System.out.println("Scheduling Options are: "+schedulingOptions);
-		//Assert.assertEquals("VACATION_RATE", schedulingOptions);
+
+		String schedulingOptions = TestUtil.getValueByJPath(responseJson, "/schedulingOptions[0]");
+		if(schedulingOptions.equalsIgnoreCase("REMOVE_DIGITAL_ACCCESS"))
+		{
+			logger.info("Scheduling Options are: "+schedulingOptions);
+			logger.info(accountId + ": Account eligible for VR");
+			//Assert.assertEquals("VACATION_RATE", schedulingOptions);
+		}
+		
+		else
+		{
+			logger.info("Scheduling Options are: "+schedulingOptions);
+			logger.info(accountId + ": Account not eligible for VR");
+		}
+		
+		
 		
 		return schedulingOptions;
 		

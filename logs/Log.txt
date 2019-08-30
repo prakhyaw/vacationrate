@@ -1,0 +1,7 @@
+2019-08-30 16:17:33,824  INFO [main] AddRateTest:22 - Test started
+2019-08-30 16:17:53,851  INFO [main] AddRateTest:26 - Account Number selected for vacation is ==	825307
+2019-08-30 16:17:54,441  INFO [main] EligibilityOptions:63 - {"operatorId":"SUG","accountId":"000825307"}
+2019-08-30 16:17:57,478  INFO [main] EligibilityOptions:69 - Status code ----->200
+2019-08-30 16:17:57,497  INFO [main] EligibilityOptions:76 - Response json from api -->{"accountId":"000825307","schedulingOptions":["KEEP_DIGITAL_ACCESS","DONATE"]}
+2019-08-30 16:17:57,498  INFO [main] EligibilityOptions:90 - Scheduling Options are: KEEP_DIGITAL_ACCESS
+2019-08-30 16:17:57,499  INFO [main] EligibilityOptions:91 - 000825307: Account not eligible for VR

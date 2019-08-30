@@ -7,6 +7,7 @@ import java.util.HashMap;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -21,6 +22,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.ObjectBuffer;
 
 public class ScheduleVacation extends TestBase{
+	
+	Logger logger = Logger.getLogger(ScheduleVacation.class);
 	
 	TestBase testbase;
 	String apiurl;
@@ -49,29 +52,34 @@ public class ScheduleVacation extends TestBase{
 		headerMap.put("Content-Type", "application/json");
 		
 		ObjectMapper mapper = new ObjectMapper();
-		ScheduleVacationRequest data = new ScheduleVacationRequest("SUG", accountId, "2019-12-30", "2019-12-31", "ADD VR", false, "C", "VACATION_RATE");
+		ScheduleVacationRequest data = new ScheduleVacationRequest("SUG", accountId, "2019-08-31", "2019-09-01", "ADD VR", false, "C", "VACATION_RATE");
 		
-		mapper.writeValue(new File("C:/Users/nagaprakhya_w/finalworkspacewithconnection/vacationrateservices/src/main/java/com/aristo/requests/schedulevacation.json"), data);
+		String filePath = System.getProperty("user.dir")+"/src/main/java/com/aristo/requests/schedulevacation.json";
+		
+		//object to json file
+		mapper.writeValue(new File(filePath), data);
 		
 		String dataString = mapper.writeValueAsString(data);
+		logger.info(dataString);
+		
 		httpresponse = restClient.postService(url, dataString, headerMap);
 		
 		int statusCode = httpresponse.getStatusLine().getStatusCode();
-		System.out.println("Status code ----->"+ statusCode);
+		logger.info("Status code ----->"+ statusCode);
 		//Assert.assertEquals(statusCode, RESPONSE_STATUS_CODE_200, "Status code is not 200");
 		
 		String responseString = EntityUtils.toString(httpresponse.getEntity(),"UTF-8");
 		
 		JSONObject responseJson = new JSONObject(responseString);
-		System.out.println("Response json from api -->" +responseJson);
+		logger.info("Response json from api -->" +responseJson);
 				
 		//get the value of JSONArray
 		String resolutionOption = TestUtil.getValueByJPath(responseJson, "/resolutionOption");
-		System.out.println("Scheduling Options are: "+resolutionOption);
+		logger.info("Vacatioon created opted for : "+resolutionOption);
 		//Assert.assertEquals("VACATION_RATE", resolutionOption);
 		
-		String statusMessage = TestUtil.getValueByJPath(responseJson, "/aristoVacationSchedulingResponse/statusCode");
-		System.out.println("Scheduling Options are: "+statusMessage);
+		String statusCode1 = TestUtil.getValueByJPath(responseJson, "/aristoVacationSchedulingResponse/statusCode");
+		logger.info("status code: "+statusCode1);
 		//Assert.assertEquals("00S", statusMessage);
 		
 		return resolutionOption;
