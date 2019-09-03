@@ -3,17 +3,18 @@
 
 <suite name="VacationRateServices" parallel="methods" thread-count="1">
 	<listeners>
-		<listener class-name="com.aristo.testng.TestLogListener" />
-		  <listener class-name="com.aristo.util.MyTransformer"/>  to execute failed cases
-			<listener class-name= "com.aristo.util.ExtentReporterNG" /> for extent report
+		<!--<listener class-name="com.aristo.TestListener" />
+		   <listener class-name="com.aristo.util.MyTransformer"/>  to execute failed cases
+			<listener class-name= "com.aristo.util.ExtentReporterNG" /> for extent report -->
 			 
-			to get correct count even if a test case fails and run's for multiple times
+			<!-- to get correct count even if a test case fails and run's for multiple times --> -->
 			 <listener class-name="com.aristo.util.TestListener"/> 
 	</listeners>
     <test name="VacationRateService Tests" >
      	<groups>
             <run>
-            	<exclude name=""/> 
+            	<exclude name="ADD_RATE"/>
+            	<include name="NO_RATE"/>
             </run>
         </groups> 
         

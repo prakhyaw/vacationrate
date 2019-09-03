@@ -1,7 +1,14 @@
-2019-08-30 16:17:33,824  INFO [main] AddRateTest:22 - Test started
-2019-08-30 16:17:53,851  INFO [main] AddRateTest:26 - Account Number selected for vacation is ==	825307
-2019-08-30 16:17:54,441  INFO [main] EligibilityOptions:63 - {"operatorId":"SUG","accountId":"000825307"}
-2019-08-30 16:17:57,478  INFO [main] EligibilityOptions:69 - Status code ----->200
-2019-08-30 16:17:57,497  INFO [main] EligibilityOptions:76 - Response json from api -->{"accountId":"000825307","schedulingOptions":["KEEP_DIGITAL_ACCESS","DONATE"]}
-2019-08-30 16:17:57,498  INFO [main] EligibilityOptions:90 - Scheduling Options are: KEEP_DIGITAL_ACCESS
-2019-08-30 16:17:57,499  INFO [main] EligibilityOptions:91 - 000825307: Account not eligible for VR
+2019-09-03 15:15:37,861  INFO [pool-1-thread-1] NoRateTest:20 - Test started
+2019-09-03 15:15:58,583  INFO [pool-1-thread-1] NoRateTest:34 - Account Number selected for vacation is ==	000825307
+2019-09-03 15:15:59,156  INFO [pool-1-thread-1] EligibilityOptions:63 - {"operatorId":"SUG","accountId":"000825307"}
+2019-09-03 15:16:02,747  INFO [pool-1-thread-1] EligibilityOptions:69 - Status code ----->200
+2019-09-03 15:16:02,763  INFO [pool-1-thread-1] EligibilityOptions:76 - Response json from api -->{"accountId":"000825307","schedulingOptions":["KEEP_DIGITAL_ACCESS","DONATE"]}
+2019-09-03 15:16:02,779  INFO [pool-1-thread-1] EligibilityOptions:90 - Scheduling Options are: KEEP_DIGITAL_ACCESS
+2019-09-03 15:16:02,784  INFO [pool-1-thread-1] EligibilityOptions:91 - 000825307: Account not eligible for VR
+2019-09-03 15:16:02,806  INFO [pool-1-thread-1] NoRateTest:20 - Test started
+2019-09-03 15:16:02,807  INFO [pool-1-thread-1] NoRateTest:34 - Account Number selected for vacation is ==	000956979
+2019-09-03 15:16:02,812  INFO [pool-1-thread-1] EligibilityOptions:63 - {"operatorId":"SUG","accountId":"000956979"}
+2019-09-03 15:16:04,731  INFO [pool-1-thread-1] EligibilityOptions:69 - Status code ----->200
+2019-09-03 15:16:04,732  INFO [pool-1-thread-1] EligibilityOptions:76 - Response json from api -->{"accountId":"000956979","schedulingOptions":["REMOVE_DIGITAL_ACCESS","DONATE","VACATION_RATE"]}
+2019-09-03 15:16:04,732  INFO [pool-1-thread-1] EligibilityOptions:90 - Scheduling Options are: REMOVE_DIGITAL_ACCESS
+2019-09-03 15:16:04,732  INFO [pool-1-thread-1] EligibilityOptions:91 - 000956979: Account not eligible for VR

@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="23735" started-at="2019-08-30T10:47:33Z" finished-at="2019-08-30T10:47:57Z">
+  <suite name="VacationRateServices" duration-ms="26960" started-at="2019-09-03T09:45:37Z" finished-at="2019-09-03T09:46:04Z">
     <groups>
-      <group name="ADD_RATE">
-        <method signature="AddRateTest.ScheduleVacationWithAddRate()[pri:0, instance:com.aristo.test.AddRateTest@7791a895]" name="ScheduleVacationWithAddRate" class="com.aristo.test.AddRateTest"/>
-      </group> <!-- ADD_RATE -->
+      <group name="NO_RATE">
+        <method signature="NoRateTest.ScheduleVacationWithNoRate()[pri:0, instance:com.aristo.test.NoRateTest@3d99d22e]" name="ScheduleVacationWithNoRate" class="com.aristo.test.NoRateTest"/>
+      </group> <!-- NO_RATE -->
     </groups>
-    <test name="Default test" duration-ms="23735" started-at="2019-08-30T10:47:33Z" finished-at="2019-08-30T10:47:57Z">
-      <class name="com.aristo.test.AddRateTest">
-        <test-method status="PASS" signature="ScheduleVacationWithAddRate()[pri:0, instance:com.aristo.test.AddRateTest@7791a895]" name="ScheduleVacationWithAddRate" duration-ms="23704" started-at="2019-08-30T16:17:33Z" finished-at="2019-08-30T16:17:57Z">
+    <test name="VacationRateService Tests" duration-ms="26960" started-at="2019-09-03T09:45:37Z" finished-at="2019-09-03T09:46:04Z">
+      <class name="com.aristo.test.NoRateTest">
+        <test-method status="PASS" signature="ScheduleVacationWithNoRate()[pri:0, instance:com.aristo.test.NoRateTest@3d99d22e]" name="ScheduleVacationWithNoRate" duration-ms="24960" started-at="2019-09-03T15:15:37Z" finished-at="2019-09-03T15:16:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ScheduleVacationWithAddRate -->
-      </class> <!-- com.aristo.test.AddRateTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- ScheduleVacationWithNoRate -->
+        <test-method status="PASS" signature="ScheduleVacationWithNoRate()[pri:0, instance:com.aristo.test.NoRateTest@3d99d22e]" name="ScheduleVacationWithNoRate" duration-ms="1935" started-at="2019-09-03T15:16:02Z" finished-at="2019-09-03T15:16:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ScheduleVacationWithNoRate -->
+      </class> <!-- com.aristo.test.NoRateTest -->
+    </test> <!-- VacationRateService Tests -->
+  </suite> <!-- VacationRateServices -->
 </testng-results>

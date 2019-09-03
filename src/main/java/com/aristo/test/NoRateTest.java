@@ -1,21 +1,19 @@
 package com.aristo.test;
 
-import org.testng.Assert;
+import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 import com.aristo.services.EligibilityOptions;
 import com.aristo.services.ScheduleVacation;
 import com.aristo.services.VacationHistory;
 import com.aristo.util.TestAccountsProvider;
-import org.apache.log4j.Logger;
 
-public class AddRateTest {
+public class NoRateTest {
 	
-	Logger logger = Logger.getLogger(AddRateTest.class);
+	Logger logger = Logger.getLogger(NoRateTest.class);
 	
-	@SuppressWarnings("null")
-	@Test(groups = {"ADD_RATE"}, invocationCount = 2)
-	public void ScheduleVacationWithAddRate() {
+	@Test(groups = {"NO_RATE"}, invocationCount = 2)
+	public void ScheduleVacationWithNoRate() {
 		
 		try
 		{
@@ -36,8 +34,8 @@ public class AddRateTest {
 			logger.info("Account Number selected for vacation is ==\t"+accountId);
 			String startDate = "2019-09-04";
 			String stopDate = "2019-09-05"; 
-			String comments = "opt for vr";
-			String option = "ADD_RATE";
+			String comments = "remove digi access";
+			String option = "NO_RATE";
 			
 			EligibilityOptions eligibilitycheck = new EligibilityOptions();
 			String schedulingOptions = eligibilitycheck.EligibilityEngineTest(accountId);
@@ -48,7 +46,7 @@ public class AddRateTest {
 				ScheduleVacation schedulevacation = new ScheduleVacation();
 				String resolutionOption = schedulevacation.scheduleVacationTest("SUG", accountId, startDate, stopDate, comments, false, "C", option);
 				
-				if(resolutionOption.equalsIgnoreCase("VACATION_RATE"))
+				if(resolutionOption.equalsIgnoreCase("REMOVE_DIGITAL_ACCCESS"))
 				{
 					System.out.println("Vacation Created with VR");
 					VacationHistory vacationhistory = new VacationHistory();
@@ -59,5 +57,6 @@ public class AddRateTest {
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-	}	
+	}
+
 }

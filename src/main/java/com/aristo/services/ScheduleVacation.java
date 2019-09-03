@@ -43,7 +43,7 @@ public class ScheduleVacation extends TestBase{
 	}
 	
 	@Test
-	public String scheduleVacationTest(String accountId) throws ClientProtocolException, IOException {
+	public String scheduleVacationTest(String operatorId, String accountId, String startDate, String stopDate, String comments, Boolean s, String by,String option) throws ClientProtocolException, IOException {
 		setUp();
 		restClient = new RestClient();
 		
@@ -52,7 +52,7 @@ public class ScheduleVacation extends TestBase{
 		headerMap.put("Content-Type", "application/json");
 		
 		ObjectMapper mapper = new ObjectMapper();
-		ScheduleVacationRequest data = new ScheduleVacationRequest("SUG", accountId, "2019-08-31", "2019-09-01", "ADD VR", false, "C", "VACATION_RATE");
+		ScheduleVacationRequest data = new ScheduleVacationRequest(operatorId, accountId, startDate, stopDate, comments, s, by, option);
 		
 		String filePath = System.getProperty("user.dir")+"/src/main/java/com/aristo/requests/schedulevacation.json";
 		
